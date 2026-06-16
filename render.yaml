@@ -1,0 +1,14 @@
+# Render Blueprint: https://render.com/docs/blueprint-spec
+# Деплой frontend ПОСЛЕ backend — в VITE_API_URL нужен URL API.
+
+services:
+  - type: web
+    name: pptx-checker-front
+    runtime: static
+    plan: free
+    region: frankfurt
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        sync: false
